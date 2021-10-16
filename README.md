@@ -25,3 +25,16 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+# Color Palettes
+$red-palette, $pink-palette, $indigo-palette,
+  $purple-palette, $deep-purple-palette, $blue-palette, $light-blue-palette, $cyan-palette,
+  $teal-palette, $green-palette, $light-green-palette, $lime-palette, $yellow-palette,
+  $amber-palette, $orange-palette, $deep-orange-palette, $brown-palette, $grey-palette,
+  $gray-palette, $blue-grey-palette, $blue-gray-palette, $light-theme-background-palette,
+  $dark-theme-background-palette, $light-theme-foreground-palette, $dark-theme-foreground-palette, $blue-dark;
+
+  # Themeing
+  define-light-theme, define-dark-theme,
+  define-palette, get-contrast-color-from-palette, get-color-from-palette,
+  get-color-config, get-typography-config, get-density-config,
