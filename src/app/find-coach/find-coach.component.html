@@ -18,43 +18,19 @@
       </div>
     </from> -->
 
-    <div class="custom-card-container row m-0">
-      <div class="col-md-3 card custom-card">
+    <div class="custom-card-container row m-0" *ngIf="coaches">
+      <div class="col-md-3 card custom-card" *ngFor="let coach of coaches">
         <div class="card-avatar"></div>
         <div class="card-body card-avatar-body">
-            <h5 class="card-title text-center text-white fs-4 mb-3 font-dark">Jason Smith</h5>
+            <h5 class="card-title text-center text-white fs-4 mb-3 font-dark">{{coach.name}}</h5>
             <h6 class="text-center fs-6 mb-3 text-white font-dark">Professional Coach</h6>
-            <p class="card-text text-center text-white font-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p class="card-text text-center text-white font-small">{{coach.intro}}</p>
             <a href="#" class="btn btn-link justify-content-center text-decoration-none font-dark d-block">Book Session</a>
         </div>
       </div>
-      <div class="col-md-3 card custom-card">
-        <div class="card-avatar"></div>
-        <div class="card-body card-avatar-body">
-            <h5 class="card-title text-center text-white fs-4 mb-3 font-dark">Jeffery Rockensen</h5>
-            <h6 class="text-center fs-6 mb-3 text-white font-dark">Professional Coach</h6>
-            <p class="card-text text-center text-white font-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <a href="#" class="btn btn-link justify-content-center text-decoration-none font-dark d-block">Book Session</a>
-        </div>
-      </div>
-      <div class="col-md-3 card custom-card">
-        <div class="card-avatar"></div>
-        <div class="card-body card-avatar-body">
-            <h5 class="card-title text-center text-white fs-4 mb-3 font-dark">Devanatha </h5>
-            <h6 class="text-center fs-6 mb-3 text-white font-dark">Professional Coach</h6>
-            <p class="card-text text-center text-white font-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <a href="#" class="btn btn-link justify-content-center text-decoration-none font-dark d-block">Book Session</a>
-        </div>
-      </div>
-      <div class="col-md-3 card custom-card">
-        <div class="card-avatar"></div>
-        <div class="card-body card-avatar-body">
-            <h5 class="card-title text-center text-white fs-4 mb-3 font-dark">Will Smith</h5>
-            <h6 class="text-center fs-6 mb-3 text-white font-dark">Professional Coach</h6>
-            <p class="card-text text-center text-white font-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <a href="#" class="btn btn-link justify-content-center text-decoration-none font-dark d-block">Book Session</a>
-        </div>
-      </div>
- 
+    </div>
+    <div align="center" [hidden]="coaches">
+      <h2 class="fs-4 text-start mb-4 font-dark">Loading...</h2>
+      <mat-spinner></mat-spinner>
     </div>
   </div>

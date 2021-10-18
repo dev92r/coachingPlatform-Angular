@@ -1,7 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Contact } from '../shared/contact';
-// import { observable  } from 'rxjs';
+import { observable  } from 'rxjs';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { baseURL } from '../shared/baseurl';
+import { ContactService } from '../services/contact.service';
 
 
 @Component({
@@ -50,7 +53,7 @@ export class ContactComponent implements OnInit {
     
   }
 
-  constructor(private fb: FormBuilder) { 
+  constructor(private fb: FormBuilder, private http: HttpClient, private contactService: ContactService) { 
     this.createForm();
   }
 
@@ -96,7 +99,8 @@ export class ContactComponent implements OnInit {
 
   onSubmit() {
     this.contactInput = this.contactForm.value;
-    console.log(this.contactInput);
+    this.contactService.postContactInput(this.contactInput)
+      .subscribe()
     this.contactForm.reset({
       firstName: '',
       lastName: '',

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Coach } from '../shared/coach';
+import { CoachesService } from '../services/coaches.service';
 
 @Component({
   selector: 'app-find-coach',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FindCoachComponent implements OnInit {
 
-  constructor() { }
+  coaches!: Coach[];
+
+  constructor(private coachesService: CoachesService) { 
+    this.coachesService.getCoaches()
+      .subscribe(coaches => this.coaches = coaches);
+  }
 
   ngOnInit(): void {
   }
+
 
 }
