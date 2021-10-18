@@ -1,0 +1,25 @@
+
+//video
+
+.video-btn-play {
+    font-size: 6rem;
+    color: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.video-btn-play:hover {
+    color: #2c80ce;
+}
+
+//Carousel
+
+.custom-carosuel {
+    background-color: #5390bc;
+}
+
+.carousel-indicators {
+    bottom: -40px;
+}

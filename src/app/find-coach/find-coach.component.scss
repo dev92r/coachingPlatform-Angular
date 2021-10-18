@@ -1,0 +1,35 @@
+
+.card-avatar {
+    width: 20%;
+    height: auto;
+    padding: 6rem;
+    background: #f4f4f4;
+    border-radius: 50%;
+    // background-image: url(../assets/images/icons-user.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.card-avatar-body, .custom-card-container {
+    padding-top: 8rem;
+}
+
+.custom-card {
+    background: #023f60;
+    border:4px solid white;
+}
+
+
+@media (max-width: 767px) {
+    .custom-card {
+        margin-bottom: 8rem;
+    }
+    .custom-card:last-child {
+        margin-bottom: 0rem;
+    }
+}
