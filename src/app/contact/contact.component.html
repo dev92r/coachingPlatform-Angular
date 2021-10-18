@@ -1,48 +1,60 @@
 <!--contact start-->
 <div class="mt-0rounded-3">
     <div class="container py-5">
-      <h1 class="fs-1 fw-bold mb-4 font-dark">Contact</h1>
-      <form action="#">
+      <form novalidate [formGroup]="contactForm" #cform="ngForm" (ngSubmit)="onSubmit()">
+          <div class="row mb-2">
+            <div class="col">
+                <mat-form-field>
+                    <input matInput formControlName="firstName" type="text" name="firstName" placeholder="First name" class="form-control" 
+                    autocomplete="off" required >
+                    <mat-error *ngIf="formErrors.firstName">{{formErrors.firstName}}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field>
+                    <input matInput formControlName="lastName" type="text" name="lastName" placeholder="Last name" class="form-control" 
+                    autocomplete="off" required>
+                    <mat-error *ngIf="formErrors.lastName">{{formErrors.lastName}}</mat-error>
+                </mat-form-field>      
+            </div>
+        </div>
           <div class="row mb-2">
               <div class="col">
-                  <label class="form-label font-dark">First Name</label>
-                  <input type="text" name="firstName" class="form-control" 
-                      aria-label="First name" required>
+                <mat-form-field>
+                    <input matInput formControlName="email" type="email" name="email" placeholder="Email" class="form-control" 
+                    autocomplete="off" required >
+                    <mat-error *ngIf="formErrors.email">{{formErrors.email}}</mat-error>
+                </mat-form-field>   
               </div>
               <div class="col">
-                  <label class="form-label font-dark">Last Name</label>
-                  <input type="text" name="lastName" class="form-control" 
-                      aria-label="Last name" required>
+                <mat-form-field>
+                    <input matInput formControlName="phone" type="text" name="phone" placeholder="Phone" class="form-control" 
+                    autocomplete="off" required pattern="[0-9]*" >
+                    <mat-error *ngIf="formErrors.phone">{{formErrors.phone}}</mat-error>
+                </mat-form-field>  
               </div>
           </div>
           <div class="row mb-2">
               <div class="col">
-                  <label class="form-label font-dark">Email</label>
-                  <input type="email" name="email" class="form-control" 
-                      aria-label="Email" required>
-              </div>
-              <div class="col">
-                  <label class="form-label font-dark">Phone (optional)</label>
-                  <input type="text" name="phone" class="form-control" 
-                      aria-label="Phone">
+                <mat-form-field>
+                    <input matInput formControlName="subject" type="text" name="subject" placeholder="Subject" class="form-control" 
+                    autocomplete="off" required>
+                    <mat-error *ngIf="formErrors.subject">{{formErrors.subject}}</mat-error>
+                </mat-form-field>
               </div>
           </div>
           <div class="row mb-2">
               <div class="col">
-                  <label class="form-label font-dark">Subject</label>
-                  <input type="text" name="subject" class="form-control" 
-                      aria-label="Subject" required>
+                <mat-form-field>
+                    <textarea matInput type="text" name="message" class="form-control" 
+                      placeholder="Message" rows="8" required formControlName="message"></textarea>
+                      <mat-error *ngIf="formErrors.message">{{formErrors.message}}</mat-error>
+                </mat-form-field>  
               </div>
           </div>
-          <div class="row mb-2">
-              <div class="col">
-                  <label class="form-label font-dark">Message</label>
-                  <textarea type="text" name="message" class="form-control" 
-                      aria-label="Message" required></textarea>
-              </div>
-          </div>
-          <button type="submit" class="btn submit-btn text-white btn-lg mt-4">Submit</button>
+          <button type="submit" class="btn submit-btn text-white btn-lg mt-4" [disabled]="!contactForm.valid">Submit</button>
       </form>
     </div>
 </div>
 <!--contact end-->
+
