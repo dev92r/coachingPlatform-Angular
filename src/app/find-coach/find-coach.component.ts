@@ -10,6 +10,9 @@ import { CoachesService } from '../services/coaches.service';
 export class FindCoachComponent implements OnInit {
 
   coaches!: Coach[];
+  searchByName!: string;
+  searchByTopic!: string;
+  searchByIndustry!: string;
 
   constructor(private coachesService: CoachesService) { 
     this.coachesService.getCoaches()

@@ -1,25 +1,35 @@
 <!--Search start-->
 <div class="container py-5">
     <h2 class="fs-2 text-start mb-4 font-dark">Search</h2>
-    <!-- <from>
+    <form novalidate>
       <div class="form-group row">
         <div class="col-md-3 mb-3">
-          <input type="text" name="Name" class="form-control" placeholder="Name" aria-label="Name">
+          <mat-form-field>
+            <input matInput type="text" name="Name" class="form-control" placeholder="Name" autocomplete="off" [(ngModel)]="searchByName">
+          </mat-form-field>
         </div>
         <div class="col-md-3 mb-3">
-          <input type="text" name="Topic" class="form-control" placeholder="Topic" aria-label="Topic">
+          <mat-form-field>
+            <input matInput type="text" name="Topic" class="form-control" placeholder="Topic" autocomplete="off" [(ngModel)]="searchByTopic">
+          </mat-form-field>
         </div>
         <div class="col-md-3 mb-3">
-          <input type="date" name="date" class="form-control" placeholder="date" aria-label="date">
+          <mat-form-field>
+            <input matInput type="date" name="date" class="form-control" placeholder="date" aria-label="date">
+          </mat-form-field>
+          
         </div>
         <div class="col-md-3 mb-3">
-          <input type="text" name="Industy" class="form-control" placeholder="Industy" aria-label="Industy">
+          <mat-form-field>
+            <input matInput type="text" name="Industy" class="form-control" placeholder="Industy" autocomplete="off" [(ngModel)]="searchByIndustry">
+          </mat-form-field>
+          
         </div>
       </div>
-    </from> -->
+    </form>
 
     <div class="custom-card-container row m-0" *ngIf="coaches">
-      <div class="col-md-3 card custom-card" *ngFor="let coach of coaches">
+      <div class="col-md-3 card custom-card" *ngFor="let coach of coaches | filter: searchByName | filter: searchByTopic | filter: searchByIndustry">
         <div class="card-avatar"></div>
         <div class="card-body card-avatar-body">
             <h5 class="card-title text-center text-white fs-4 mb-3 font-dark">{{coach.name}}</h5>
